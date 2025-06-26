@@ -1,0 +1,104 @@
+{
+  "personalInfo": {
+    "name": "Gabriel Caldi",
+    "pageTitle": "Gabriel Caldi | Portfólio",
+    "tagline": "Engenharia de Produção & Data Science",
+    "profileImage":"images/minha_foto.jpg",
+    "aboutText": [
+      "Olá, meu nome é Gabriel!",
+      "Estou cursando meu bacharelado em engenharia de produção pela Universidade Federal Fluminense no polo de Rio das Ostras e recentemente tenho voltado meus estudos para Probabilidade e Estatística, Análise de Dados e Mineração, com foco em Aprendizado de Máquina e desenvolvimento de inteligência para suporte de decisão na área de engenharia."
+    ]
+  },
+  "navigation": [
+    { "text": "SOBRE MIM", "target": "about-window" },
+    { "text": "PROJETOS", "target": "projects-window" },
+    { "text": "CONTATO", "target": "contact-window" }
+  ],
+  "windows": {
+    "readme": {
+      "title": "README.TXT",
+      "heading": "BEM-VINDO!",
+      "text": [
+        "Este é o meu terminal pessoal. Use o menu para explorar ou arraste as janelas."
+      ]
+    },
+    "about": {
+      "title": "SOBRE.TXT",
+      "heading": "GABRIEL CALDI"
+    },
+    "projects": {
+      "title": "PROJETOS.LST",
+      "heading": "PROJETOS PRINCIPAIS"
+    },
+    "contact": {
+      "title": "CONTATO.INF",
+      "heading": "CONECTE-SE",
+      "links": [
+        { "name": "GitHub", "url": "https://github.com/ikirior" },
+        { "name": "LinkedIn", "url": "#" },
+        { "name": "Email", "url": "mailto:email@example.com" }
+      ]
+    }
+  },
+  "projects": [
+    {
+      "id": "project-dashboard-pizzaria",
+      "status": "publico",
+      "menu_title": "Dashboard Interativo de Pizzaria",
+      "page_title": "PROJETO: DASHBOARD DE PIZZARIA",
+      "summary": [
+        "Como parte da disciplina de probabilidade e estatística na faculdade, foi desenvolvido um painel interativo para uma pizzaria fictícia.",
+        "Utilizamos a plataforma Looker Studio para visualização de dados, o Google Sheets para limpeza e o Kaggle para aquisição do conjunto de dados.",
+        "Desenvolvido por: Gabriel Caldi, Laís Freitas, e Letícia Mendes."
+      ],
+      "technologies": ["LookerStudio", "Google Sheets", "Estatística", "Kaggle"],
+      "links": [
+        { "text": "[ ACESSAR O DASHBOARD INTERATIVO ]", "url": "https://lookerstudio.google.com/reporting/3f53a8f6-f3e1-4314-800a-ac99db7f441c" }
+      ],
+      "images": [
+        { 
+          "src": "images/sauce_pizzaria.png", 
+          "alt": "Visão geral do dashboard de pizzaria", 
+          "type": "principal" 
+        }
+      ]      
+    },
+      {
+      "id": "project-ml-churn",
+      "status": "rascunho",
+      "layout": "lado-a-lado",
+      "menu_title": "Análise Preditiva de Churn (ML)",
+      "page_title": "PROJETO: ANÁLISE PREDITIVA DE CHURN",
+      "summary": [
+        "Desenvolvimento de um modelo de Machine Learning para prever a probabilidade de evasão de clientes (churn) em um serviço de assinatura.",
+        "O objetivo é permitir que a empresa tome ações de retenção proativas e direcionadas."
+      ],
+      "technologies": ["Python", "Pandas", "Scikit-learn", "Matplotlib"],
+      "findings": [
+        "O modelo Random Forest alcançou uma acurácia de 89%.",
+        "O tempo de uso semanal e o número de tickets de suporte são os principais preditores."
+      ],
+      
+      "code_snippet": "from sklearn.ensemble import RandomForestClassifier\n\n# Treinamento do modelo\nmodel = RandomForestClassifier(n_estimators=100)\nmodel.fit(X_train, y_train)\naccuracy = model.score(X_test, y_test)",
+      "code_type": "principal",
+      "links": [
+        { "text": "[ VER CÓDIGO NO GITHUB ]", "url": "#" }
+      ],
+      "images": [
+        {
+          "src": "images/placeholder.png",
+          "alt": "Placeholder para imagem do projeto de churn",
+          "type": "principal"
+        }
+      ]
+    },
+    {
+      "id": "project-new-idea",
+      "status": "rascunho",
+      "menu_title": "Nova Ideia de Projeto (Em Breve)",
+      "page_title": "PROJETO: NOVA IDEIA",
+      "summary": [ "Este projeto ainda está em fase de planejamento e desenvolvimento." ],
+      "technologies": ["Ideação", "Pesquisa"]
+    }
+  ]
+}
