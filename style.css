@@ -1,31 +1,31 @@
-/* 1. VARIÁVEIS DE COR E FONTE */
 :root {
-    --corporate-purple: #673AB7; 
-    --accent-blue: #007BFF;
-    --light-gray-bg: #F4F6F8;
-    --pure-white: #FFFFFF;
-    --dark-text: #212529;
+    /* Tema Claro (Padrão) */
+    --page-bg: #F4F6F8;
+    --window-bg: #FFFFFF;
+    --header-bg: #F8F9FA;
+    --text-primary: #212529;
     --text-secondary: #6c757d;
-    --subtle-gray-border: #E0E0E0;
+    --border-color: #E0E0E0;
+    --accent-primary: #673AB7; /* Roxo Corporativo */
+    --accent-secondary: #007BFF; /* Azul de Ação */
     --danger-red: #dc3545;
 
     --font-sans-serif: 'Inter', sans-serif;
 }
 
 body.dark-theme {
-    /* Tema Escuro */
+    /* Tema Escuro (Ativado pela classe) */
     --page-bg: #121212;
     --window-bg: #1E1E1E;
     --header-bg: #212529;
     --text-primary: #E0E0E0;
     --text-secondary: #adb5bd;
     --border-color: #343a40;
-    --accent-primary: #9575CD;
-    --accent-secondary: #008cff;
+    --accent-primary: #9575CD; /* Roxo mais claro para contraste */
+    --accent-secondary: #008cff; /* Azul mais brilhante */
     --danger-red: #e63946;
 }
 
-/* 2. ESTILOS GLOBAIS */
 body {
     background-color: var(--page-bg);
     color: var(--text-primary);
@@ -52,7 +52,6 @@ body.dark-theme {
 
 #desktop-view { display: block; height: 100%; width: 100%; }
 
-/* 3. NAVEGAÇÃO PRINCIPAL */
 #main-nav {
     position: fixed; top: 20px; left: 20px; z-index: 1000;
 }
@@ -85,7 +84,6 @@ body.dark-theme #main-nav a:hover, body.dark-theme #main-nav a:focus {
     color: #FFF;
 }
 
-/* 4. JANELAS FLUTUANTES */
 .window {
     position: absolute;
     background-color: var(--window-bg);
@@ -125,7 +123,7 @@ body.dark-theme #main-nav a:hover, body.dark-theme #main-nav a:focus {
 body.dark-theme .close-btn { background-color: #343a40; }
 
 
-.window-content { padding: 24px; }
+.window-content { padding: 0; } /* Padding zero para o Profile Header funcionar */
 .window-content p { margin: 0 0 1em 0; line-height: 1.6; }
 .window-content p:last-child { margin-bottom: 0; }
 .window-content ul { padding-left: 20px; }
@@ -135,7 +133,6 @@ body.dark-theme .close-btn { background-color: #343a40; }
     margin: 0;
 }
 
-/* 5. COMPONENTES E PÁGINAS DE PROJETO */
 .profile-header { display: flex; align-items: center; gap: 20px; background-color: var(--header-bg); padding: 24px; border-bottom: 1px solid var(--border-color); transition: background-color 0.3s, border-color 0.3s; }
 .about-image-container { flex-shrink: 0; width: 80px; height: 80px; }
 .about-image-container img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 3px solid var(--window-bg); box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
@@ -173,44 +170,72 @@ body.dark-theme .close-btn { background-color: #343a40; }
 
 .user-is-dragging * { user-select: none !important; -webkit-user-select: none !important; -moz-user-select: none !important; -ms-user-select: none !important; }
 
-#main-footer { position: fixed; bottom: 0; left: 0; width: 100%; padding: 10px 20px; text-align: left; font-size: 14px; color: var(--text-secondary); z-index: 999; }
-#theme-switcher { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: none; border: 1px solid var(--border-color); color: var(--text-secondary); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 16px; transition: all 0.2s; }
-#theme-switcher:hover { background-color: var(--accent-primary); color: var(--pure-white); border-color: var(--accent-primary); }
+#main-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    text-align: left;
+    font-size: 14px;
+    color: var(--text-secondary);
+    z-index: 999;
+    pointer-events: none;
+}
+#theme-switcher {
+    position: fixed;
+    right: 10px;
+    top: 96%;
+    transform: translateY(-50%);
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.2s;
+    pointer-events: all;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+#theme-switcher:hover {
+    background-color: var(--accent-primary);
+    color: #FFF;
+    border-color: var(--accent-primary);
+}
 
 
-/* 6. MEDIA QUERIES PARA RESPONSIVIDADE */
 @media (max-width: 850px) {
-    body { overflow-y: auto; font-size: 18px; padding-bottom: 50px; }
-    
-    #project-view { padding: 1rem; }
+    body { overflow-y: auto; font-size: 18px; padding-bottom: 80px;}
+    #project-view { padding: 1.5rem; }
     .project-page { padding: 1.5rem; }
-
     #desktop-view { display: flex; flex-direction: column; align-items: center; height: auto; padding: 1rem; padding-top: 80px; }
-    
-    .window {
-        position: relative;
-        left: auto !important;
-        top: auto !important;
-        width: 100%;
-        max-width: 500px;
-        margin-bottom: 2rem;
-        transform: none !important;
-        display: block !important;
-        z-index: 1 !important;
-        min-width: 0;
-    }
-    
+    .window { position: relative; left: auto !important; top: auto !important; width: 100%; max-width: 500px; margin-bottom: 2rem; transform: none !important; display: block !important; z-index: 1 !important; min-width: 0; }
     #readme-window { display: none !important; }
     .title-bar { cursor: default; }
-
     #main-nav { position: fixed; width: 100%; top: 0; left: 0; box-sizing: border-box; display: flex; justify-content: center; background-color: var(--window-bg); padding: 0; border: none; border-bottom: 1px solid var(--border-color); }
     #main-nav ul { border: none; background: none; box-shadow: none; }
-    
     .visuals-column, .image-gallery { grid-template-columns: 1fr; }
     .visual-item.principal, .visual-item.detalhe { grid-column: span 1; }
-    
     .about-content-wrapper { flex-direction: column; text-align: center; }
     
-    #main-footer { position: relative; padding: 2rem 0; text-align: center; }
-    #theme-switcher { right: auto; left: 50%; transform: translateX(-50%); top: -50px; }
+    #main-footer {
+        position: relative;
+        padding: 2rem 0;
+        text-align: center;
+    }
+    #theme-switcher {
+        position: fixed;
+        bottom: 15px;
+        right: 20px;
+        top: auto;
+        left: auto;
+        transform: none;
+        z-index: 1001;
+    }
 }
